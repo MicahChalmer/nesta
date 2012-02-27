@@ -34,12 +34,14 @@ EOF
   s.add_dependency('haml', '~> 3.1')
   s.add_dependency('sass', '~> 3.1')
   s.add_dependency('rdiscount', '~> 1.6')
-  s.add_dependency('RedCloth', '~> 4.2')
   s.add_dependency('sinatra', '~> 1.3')
   s.add_dependency('rack', '~> 1.1')
+
+  # This is required if you actually use it, but you don't need to
+  s.add_development_dependency('RedCloth', '~> 4.2')
   
   # Useful in development
-  s.add_dependency('shotgun', '>= 0.8')
+  s.add_development_dependency('shotgun', '>= 0.8')
 
   # Test libraries
   s.add_development_dependency('hpricot', '0.8.4')
