@@ -26,9 +26,82 @@ EOF
 
   s.rubyforge_project = "nesta"
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.files         = %w[
+.gitignore
+.travis.yml
+CHANGES
+Gemfile
+Gemfile.lock
+LICENSE
+README.md
+Rakefile
+bin/nesta
+config.ru
+config/deploy.rb.sample
+lib/nesta.rb
+lib/nesta/app.rb
+lib/nesta/cache.rb
+lib/nesta/commands.rb
+lib/nesta/config.rb
+lib/nesta/env.rb
+lib/nesta/helpers.rb
+lib/nesta/models.rb
+lib/nesta/navigation.rb
+lib/nesta/nesta.rb
+lib/nesta/overrides.rb
+lib/nesta/path.rb
+lib/nesta/plugin.rb
+lib/nesta/version.rb
+nesta.gemspec
+scripts/import-from-mephisto
+spec/atom_spec.rb
+spec/commands_spec.rb
+spec/config_spec.rb
+spec/fixtures/nesta-plugin-test/Gemfile
+spec/fixtures/nesta-plugin-test/Rakefile
+spec/fixtures/nesta-plugin-test/lib/nesta-plugin-test.rb
+spec/fixtures/nesta-plugin-test/lib/nesta-plugin-test/init.rb
+spec/fixtures/nesta-plugin-test/lib/nesta-plugin-test/version.rb
+spec/fixtures/nesta-plugin-test/nesta-plugin-test.gemspec
+spec/model_factory.rb
+spec/models_spec.rb
+spec/overrides_spec.rb
+spec/page_spec.rb
+spec/path_spec.rb
+spec/plugin_spec.rb
+spec/sitemap_spec.rb
+spec/spec.opts
+spec/spec_helper.rb
+templates/Gemfile
+templates/Rakefile
+templates/config.ru
+templates/config/config.yml
+templates/config/deploy.rb
+templates/index.haml
+templates/themes/README.md
+templates/themes/app.rb
+views/analytics.haml
+views/atom.haml
+views/categories.haml
+views/colors.sass
+views/comments.haml
+views/error.haml
+views/feed.haml
+views/footer.haml
+views/header.haml
+views/layout.haml
+views/master.sass
+views/mixins.sass
+views/not_found.haml
+views/page.haml
+views/page_meta.haml
+views/sidebar.haml
+views/sitemap.haml
+views/summaries.haml
+]
+
+  s.test_files    = s.files.select { |path| path =~ %r[^(?:test|spec|features)/] }
+  s.executables   = s.files.select { |path| path =~ %r[^bin/] }
   s.require_paths = ["lib"]
 
   s.add_dependency('haml', '~> 3.1')
